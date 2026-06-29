@@ -11,7 +11,7 @@ export async function initApp() {
 await addRasterLayer(map, tifUrl);
 
   const hydrobasins = await fetch(
-    "/simple_hydrobasins.geojson"
+    "/hydrobasins_web.geojson"
   ).then(r => r.json());
 
   addBasinLayer(map, hydrobasins, (feature) => {
@@ -19,8 +19,8 @@ await addRasterLayer(map, tifUrl);
   
     document.getElementById("basin-info").innerHTML = `
       <h3>Basin Information</h3>
-      <p><strong>HYBAS_ID:</strong> ${props.HYBAS_ID}</p>
-      <p><strong>Area:</strong> ${props.AREA_SQKM}</p>
+      <p><strong>Hydrobasin ID:</strong> ${props.HYBAS_ID}</p>
+      <p><strong>Link Number:</strong> ${props.LINKNO}</p>
     `;
   });
 }
